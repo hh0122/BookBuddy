@@ -1,35 +1,35 @@
-import React from "react"
-import { useEffect, useState } from "react"
+// BookList.jsx
+import React, { useEffect, useState } from "react";
 import { getBooks } from "../api/api";
 
 const BookList = () => {
-  const[books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const data = await getBooks();
-        setBooks(data); 
+        setBooks(data);
       } catch (error) {
         console.error("Error fetching books:", error);
       }
     };
-  
+
     fetchBooks();
   }, []);
 
   return (
-    <div>
+    <div className="book-list-container">
       <h1>Book Listings</h1>
-        <ul>
-          {books.map((book) => (
+      <ul>
+        {books.map((book) => (
           <li key={book.id}>
-          <a href={`/books/${book.id}`}>{book.title}</a>
+            <a href={`/books/${book.id}`}>{book.title}</a>
           </li>
-          ))}
-        </ul>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
 export default BookList;
