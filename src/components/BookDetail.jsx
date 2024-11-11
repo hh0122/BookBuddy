@@ -18,7 +18,7 @@ const BookDetails = () => {
     <h2>{book.title}</h2>
     <p>{book.description}</p>
     <p>Author: {book.author}</p>
-    <img src={book.coverimage} alt={book.title} />
+    <img src={book.coverimage} alt={book.title} height='500px' width='500px'/>
   </>
 )
 }
