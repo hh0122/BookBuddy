@@ -1,8 +1,7 @@
-// Login.jsx
 import React, { useState } from "react";
 import { loginUser } from "../api/api";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +14,7 @@ const Login = () => {
       if (response.token) {
         console.log('Token:', response.token);
         localStorage.setItem('token', response.token);
+        setIsAuthenticated(true);
       } else {
         console.log('Login failed');
       }

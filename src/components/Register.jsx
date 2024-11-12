@@ -1,4 +1,3 @@
-// Register.jsx
 import React, { useState } from "react";
 import { registerUser } from "../api/api";
 
@@ -15,9 +14,9 @@ const Register = () => {
     try {
       const response = await registerUser(userData);
       if (response.message === 'Registration successful') {
-        console.log(`Registration successful!`);
+        console.log('Registration successful!');
       } else {
-        console.error(`Registration failed:`, response.message);
+        console.error('Registration failed:', response.message);
       }
     } catch (error) {
       console.error('An error occurred during registration:', error);
